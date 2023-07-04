@@ -21,12 +21,13 @@ class Item(BaseModel):
 @app.get("/api/v2/newsapi")  
 # ( http://127.0.0.1:8000+"내가 지정한 경로") 
 def news_api():  
-    q = 'car' 
+    q = 'cat' 
     api = '8ec2109c834d4af1b4e7aaea3f56a85d                '
-    url = 'https://newsapi.org/v2/everything' 
     response = requests.get('https://newsapi.org/v2/everything'\
                         , params={'q':{q},'from':'2023-06-30','sortBy':'popularity','apiKey':{api}}) 
-    return {response.text}                                                                                          
+    print(response.text) 
+    data = response.json()    
+    return {"articles": data["articles"]}                                                                                          
 
 
 @app.get("/items/{item_id}")
