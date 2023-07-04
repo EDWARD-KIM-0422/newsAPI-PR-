@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 
-
+#commit
 #(python -m uvicorn newsapi:app --reload   ->서버여는 키)
 
 class Item(BaseModel):
